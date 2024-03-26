@@ -21,7 +21,7 @@ def iirnotch(data, fs):
 
 
 
-def get_namelist(db, train=True, test_idx = 0):
+def get_namelist(train=True, test_idx = 0):
     namelist = du.get_namelist()
   
     if train:
@@ -55,10 +55,10 @@ class Dataset(Dataset):
         super(Dataset, self).__init__()
         
         
-        self.origin_fs = 500
+        self.origin_fs = 1000
         self.fs = fs
        
-        self.namelist = get_namelist(test_idx)
+        self.namelist = get_namelist(train, test_idx)
        
         self.test_idx = test_idx
 
